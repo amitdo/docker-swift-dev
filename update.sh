@@ -1,6 +1,6 @@
 #! /bin/bash
 
-VERSIONS=("debian:wheezy" "debian:jessie" "debian:stretch" "debian:sid" "ubuntu:trusty" "ubuntu:wily" "ubuntu:xenial")
+VERSIONS=("debian:jessie" "debian:stretch" "debian:sid" "ubuntu:trusty" "ubuntu:wily" "ubuntu:xenial")
 FILES=("build.sh" "swift-build-presets")
 TEMPLATE="template"
 
