@@ -1,0 +1,20 @@
+language: bash
+services: docker
+
+env:
+  - VERSION=wheezy
+  - VERSION=jessie
+  - VERSION=stretch
+  - VERSION=sid
+  - VERSION=trusty
+  - VERSION=wily
+  - VERSION=xenial
+
+before_script:
+  - env | sort
+
+script:
+  - docker build -t "bartoszj/swift-dev:${VERSION}" "${VERSION}"
+
+after_script:
+  - docker images
