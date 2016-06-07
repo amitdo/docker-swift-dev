@@ -1,9 +1,8 @@
 # Supported tags and respective `Dockerfile` links
 
 [![Travis](https://img.shields.io/travis/bartoszj/docker-swift-dev.svg?maxAge=2592000)](https://travis-ci.org/bartoszj/docker-swift-dev)
+[![CircleCI](https://img.shields.io/circleci/project/bartoszj/docker-swift-dev.svg?maxAge=2592000)](https://circleci.com/gh/bartoszj/docker-swift-dev)
 [![](https://imagelayers.io/badge/bartoszj/swift-dev:latest.svg)](https://imagelayers.io/?images=bartoszj/swift-dev:latest 'Get your own badge on imagelayers.io')
-<!-- [![ImageLayers Size](https://img.shields.io/imagelayers/image-size/bartoszj/swift-dev/latest.svg?maxAge=2592000)](https://hub.docker.com/r/bartoszj/swift-dev)
-[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/bartoszj/swift-dev/latest.svg?maxAge=2592000)](https://hub.docker.com/r/bartoszj/swift-dev) -->
 
 https://hub.docker.com/r/bartoszj/swift-dev/
 
