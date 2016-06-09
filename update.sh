@@ -9,6 +9,9 @@ do
     base="${version%:*}"
     variant="${version#*:}"
 
+    # Make directory.
+    mkdir -p "${variant}"
+
     # Copy Dockerfile.
     sed -e "s/^\(FROM\) .*/\\1 ${base}:${variant}/" \
         -e "s/^\(ENV\) BUILD_NAME .*/\\1 BUILD_NAME ${variant}/" \

@@ -5,7 +5,7 @@ git config --global user.email "swift@example.com"
 git config --global user.name "Swift Build Bot"
 
 # Variables
-BUILD_NAME=${BUILD_NAME:+_$BUILD_NAME}
+BUILD_NAME=${BUILD_NAME:+-$BUILD_NAME}
 export SWIFT_BUILD_ROOT="/swift_build"
 SWIFT_PRESET_FILE="/swift_build/swift-build-presets"
 SWIFT_PRESET="swift_build"

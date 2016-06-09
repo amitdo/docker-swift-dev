@@ -49,6 +49,8 @@ Compilation build will be placed in the `install_jessie` folder and in the `swif
 ```
 docker run --rm -v ${PWD}:/swift -v swift_build:/swift_build --privileged bartoszj/swift-dev
 ```
+- Building Swift 3 on Ubuntu Xenial:  
+https://bugs.swift.org/browse/SR-1023
 
 # License
 
