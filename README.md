@@ -1,7 +1,11 @@
 # Supported tags and respective `Dockerfile` links
 
-[![Travis](https://img.shields.io/travis/bartoszj/docker-swift-dev.svg?maxAge=2592000)](https://travis-ci.org/bartoszj/docker-swift-dev)
-[![CircleCI](https://img.shields.io/circleci/project/bartoszj/docker-swift-dev.svg?maxAge=2592000)](https://circleci.com/gh/bartoszj/docker-swift-dev)
+[![Swift 2.2.1](https://img.shields.io/badge/Swift-2.2.1-orange.svg?style=flat)](https://swift.org/)
+[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://swift.org/)
+[![Travis](https://img.shields.io/travis/bartoszj/docker-swift-dev.svg)](https://travis-ci.org/bartoszj/docker-swift-dev)
+[![CircleCI](https://img.shields.io/circleci/project/bartoszj/docker-swift-dev.svg)](https://circleci.com/gh/bartoszj/docker-swift-dev)
+[![Platforms Docker](https://img.shields.io/badge/Platforms-Docker-blue.svg?style=flat)](https://hub.docker.com/r/bartoszj/swift-dev/)
+[![license](https://img.shields.io/github/license/bartoszj/docker-swift-dev.svg)](https://github.com/bartoszj/docker-swift-dev/blob/master/LICENSE)
 [![](https://imagelayers.io/badge/bartoszj/swift-dev:latest.svg)](https://imagelayers.io/?images=bartoszj/swift-dev:latest 'Get your own badge on imagelayers.io')
 
 - [`jessie`, `latest` (*jessie/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/jessie/Dockerfile)
@@ -16,7 +20,7 @@ https://hub.docker.com/r/bartoszj/swift-dev/
 
 # What is Swift?
 
-![Swift](docs/swift.png)
+![Swift](https://raw.githubusercontent.com/bartoszj/docker-swift-dev/master/docs/swift.png)
 
 Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns.
 
