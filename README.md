@@ -4,14 +4,15 @@
 [![CircleCI](https://img.shields.io/circleci/project/bartoszj/docker-swift-dev.svg?maxAge=2592000)](https://circleci.com/gh/bartoszj/docker-swift-dev)
 [![](https://imagelayers.io/badge/bartoszj/swift-dev:latest.svg)](https://imagelayers.io/?images=bartoszj/swift-dev:latest 'Get your own badge on imagelayers.io')
 
-https://hub.docker.com/r/bartoszj/swift-dev/
-
 - [`jessie`, `latest` (*jessie/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/jessie/Dockerfile)
 - [`stretch` (*stretch/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/stretch/Dockerfile)
 - [`sid` (*sid/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/sid/Dockerfile)
 - [`trusty` (*trusty/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/trusty/Dockerfile)
 - [`wily` (*wily/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/wily/Dockerfile)
 - [`xenial` (*xenial/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/xenial/Dockerfile)
+
+Docker images for building Swift.  
+https://hub.docker.com/r/bartoszj/swift-dev/
 
 # What is Swift?
 
@@ -22,6 +23,8 @@ Swift is a general-purpose programming language built using a modern approach to
 The goal of the Swift project is to create the best available language for uses ranging from systems programming, to mobile and desktop apps, scaling up to cloud services. Most importantly, Swift is designed to make writing and maintaining correct programs easier for the developer.
 
 > https://swift.org/
+
+# How to use this image
 
 ## Build image
 
