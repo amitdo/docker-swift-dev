@@ -13,7 +13,7 @@ IMAGES := \
 
 all: update
 
-# Update Dockerfiles using templates.
+# Update Dockerfiles using templates
 update:
 	./update.sh
 

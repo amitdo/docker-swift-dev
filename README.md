@@ -6,7 +6,6 @@
 [![CircleCI](https://img.shields.io/circleci/project/bartoszj/docker-swift-dev.svg)](https://circleci.com/gh/bartoszj/docker-swift-dev)
 [![Platforms Docker](https://img.shields.io/badge/Platforms-Docker-blue.svg?style=flat)](https://hub.docker.com/r/bartoszj/swift-dev/)
 [![license](https://img.shields.io/github/license/bartoszj/docker-swift-dev.svg)](https://github.com/bartoszj/docker-swift-dev/blob/master/LICENSE)
-[![](https://imagelayers.io/badge/bartoszj/swift-dev:latest.svg)](https://imagelayers.io/?images=bartoszj/swift-dev:latest 'Get your own badge on imagelayers.io')
 
 - [`jessie`, `latest` (*jessie/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/jessie/Dockerfile)
 - [`stretch` (*stretch/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/stretch/Dockerfile)
