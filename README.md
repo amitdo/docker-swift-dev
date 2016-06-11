@@ -32,8 +32,10 @@ The goal of the Swift project is to create the best available language for uses 
 
 ## Build image
 
+To build Debian Jessie image:
+
 ```
-docker build -t swift-dev .
+docker build -t swift-dev:jessie jessie
 ```
 
 ## Build Swift
@@ -45,20 +47,27 @@ git clone https://github.com/apple/swift.git
 ./swift/utils/update-checkout --clone
 ```
 
-- Build Swift:
+- Build Swift (using Jessie image):
 
 ```
-docker run --rm -v ${PWD}:/swift --privileged bartoszj/swift-dev
+docker run --name swift_jessie -v ${PWD}:/src -v ${PWD}/output:/output --privileged bartoszj/swift-dev:jessie
 ```
 
-## Install
-Compilation build will be placed in the `install_jessie` folder and in the `swift_jessie.tar.gz` archive. If you want to build Swift using other version of Debian or Ubuntu use eg.: `bartoszj/swift-dev:wily`.
+Source code is associated to the host machine via Volume `/src`. The `/output` volume stores compiled Swift package (`swift-${TIMESTAMP}-${BUILD_NAME}.tar.gz`) and build logs (`build-${TIMESTAMP}-${BUILD_NAME}.log`). `--privileged` is required to run some unit tests suites.
 
 ### Build tips
-- If you want to save build products you can use:
+
+- Subsequent builds will reuse build artifacts which can reduce build time:
 
 ```
-docker run --rm -v ${PWD}:/swift -v swift_build:/swift_build --privileged bartoszj/swift-dev
+docker start -ai swift_jessie
+```
+
+- If you want to save build artifacts and use them in other container you can use `-v swift_build:/build`:
+
+```
+docker run --name swift_jessie -v ${PWD}:/src -v ${PWD}/output:/output -v swift_build:/build --privileged bartoszj/swift-dev:jessie
+docker run --name swift_xenial -v ${PWD}:/src -v ${PWD}/output:/output -v swift_build:/build --privileged bartoszj/swift-dev:xenial
 ```
 
 - Building Swift 3 on Ubuntu Xenial:  

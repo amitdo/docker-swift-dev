@@ -2,7 +2,14 @@ FROM debian:jessie
 MAINTAINER Bartosz Janda
 
 ENV BUILD_NAME jessie
-WORKDIR /swift
+# Folder where build files will be stored.
+ENV SWIFT_BUILD_ROOT /build
+
+# Required. Volume mounted from host to access source codes.
+VOLUME ["/src"]
+# Optional. Volume to store installation packages and build logs.
+VOLUME ["/output"]
+WORKDIR /src
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang \
@@ -27,5 +34,5 @@ RUN apt-get update && apt-get install -y \
         uuid-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY build.sh swift-build-presets /swift_build/
-CMD ["/swift_build/build.sh"]
+COPY build.sh swift-build-presets /build_scripts/
+CMD ["/build_scripts/build.sh"]
