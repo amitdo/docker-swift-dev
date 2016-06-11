@@ -5,12 +5,12 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t "bartoszj/swift-dev:jessie" "jessie"
+    - docker build -t "bartoszj/swift-dev:jessie"  "jessie"
     - docker build -t "bartoszj/swift-dev:stretch" "stretch"
-    - docker build -t "bartoszj/swift-dev:sid" "sid"
-    - docker build -t "bartoszj/swift-dev:trusty" "trusty"
-    - docker build -t "bartoszj/swift-dev:wily" "wily"
-    - docker build -t "bartoszj/swift-dev:xenial" "xenial"
+    - docker build -t "bartoszj/swift-dev:sid"     "sid"
+    - docker build -t "bartoszj/swift-dev:trusty"  "trusty"
+    - docker build -t "bartoszj/swift-dev:wily"    "wily"
+    - docker build -t "bartoszj/swift-dev:xenial"  "xenial"
 
 test:
   override:

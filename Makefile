@@ -4,4 +4,3 @@ all: update
 
 update:
 	./update.sh
-	

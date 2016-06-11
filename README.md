@@ -39,11 +39,14 @@ docker build -t swift-dev .
 ## Build Swift
 
 - Clone Swift repository:
+
 ```
 git clone https://github.com/apple/swift.git
 ./swift/utils/update-checkout --clone
 ```
+
 - Build Swift:
+
 ```
 docker run --rm -v ${PWD}:/swift --privileged bartoszj/swift-dev
 ```
@@ -53,14 +56,17 @@ Compilation build will be placed in the `install_jessie` folder and in the `swif
 
 ### Build tips
 - If you want to save build products you can use:
+
 ```
 docker run --rm -v ${PWD}:/swift -v swift_build:/swift_build --privileged bartoszj/swift-dev
 ```
+
 - Building Swift 3 on Ubuntu Xenial:  
 https://bugs.swift.org/browse/SR-1023
 
 # License
 
+```
 The MIT License (MIT)
 
 Copyright (c) 2016 Bartosz Janda
@@ -82,3 +88,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
