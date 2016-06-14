@@ -17,6 +17,14 @@ do
         -e "s/^\(ENV\) BUILD_NAME .*/\\1 BUILD_NAME ${variant}/" \
         "${TEMPLATE}/Dockerfile" > "${variant}/Dockerfile"
 
+    if [[ "${variant}" == "trusty" ]]; then
+        sed -e "s/clang \\\/clang-3.6 \\\/" \
+            -e "s_/var/lib/apt/lists/\*_/var/lib/apt/lists/\* \\\ \\
+    \&\& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 100 \\\ \\
+    \&\& update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100_" \
+            -i "" "${variant}/Dockerfile"
+    fi
+
     # Copy script and ocnfig files.
     for file in ${FILES[@]}
     do

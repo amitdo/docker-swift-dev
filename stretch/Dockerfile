@@ -10,6 +10,7 @@ VOLUME ["/src"]
 # Optional. Volume to store installation packages and build logs.
 VOLUME ["/output"]
 WORKDIR /src
+# Ubuntu Trusty (14.04) requires clang-3.6.
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang \
