@@ -2,15 +2,15 @@ FROM ubuntu:trusty
 MAINTAINER Bartosz Janda
 
 ENV BUILD_NAME trusty
-# Folder where build files will be stored.
+# Folder where build files will be stored
 ENV SWIFT_BUILD_ROOT /build
 
-# Required. Volume mounted from host to access source codes.
+# Required. Volume mounted from host to access source codes
 VOLUME ["/src"]
-# Optional. Volume to store installation packages and build logs.
+# Optional. Volume to store installation packages and build logs
 VOLUME ["/output"]
 WORKDIR /src
-# Ubuntu Trusty (14.04) requires clang-3.6.
+# Ubuntu Trusty (14.04) requires clang-3.6
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang-3.6 \
@@ -37,5 +37,5 @@ RUN apt-get update && apt-get install -y \
     && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 100 \ 
     && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
 
-COPY build.sh swift-build-presets /build_scripts/
+COPY build.sh swift-build-presets.ini /build_scripts/
 CMD ["/build_scripts/build.sh"]

@@ -1,6 +1,0 @@
-[preset: swift_build]
-mixin-preset=buildbot_linux
-
-dash-dash
-
-skip-test-lldb

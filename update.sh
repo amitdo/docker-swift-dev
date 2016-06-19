@@ -1,7 +1,7 @@
 #! /bin/bash
 
 VERSIONS=("debian:jessie" "debian:stretch" "debian:sid" "ubuntu:trusty" "ubuntu:wily" "ubuntu:xenial")
-FILES=("build.sh" "swift-build-presets")
+FILES=("build.sh" "swift-build-presets.ini")
 TEMPLATE="template"
 
 for version in ${VERSIONS[@]}
@@ -9,14 +9,15 @@ do
     base="${version%:*}"
     variant="${version#*:}"
 
-    # Make directory.
+    # Make directory
     mkdir -p "${variant}"
 
-    # Copy Dockerfile.
+    # Copy Dockerfile
     sed -e "s/^\(FROM\) .*/\\1 ${base}:${variant}/" \
         -e "s/^\(ENV\) BUILD_NAME .*/\\1 BUILD_NAME ${variant}/" \
         "${TEMPLATE}/Dockerfile" > "${variant}/Dockerfile"
 
+    # For Ubuntu Trusty the Clang 3.6 have to be installed
     if [[ "${variant}" == "trusty" ]]; then
         sed -e "s/clang \\\/clang-3.6 \\\/" \
             -e "s_/var/lib/apt/lists/\*_/var/lib/apt/lists/\* \\\ \\
@@ -25,7 +26,7 @@ do
             -i "" "${variant}/Dockerfile"
     fi
 
-    # Copy script and ocnfig files.
+    # Copy script and ocnfig files
     for file in ${FILES[@]}
     do
         cp "${TEMPLATE}/${file}" "${variant}/"
