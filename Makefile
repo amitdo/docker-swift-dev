@@ -9,7 +9,8 @@ IMAGES := \
 
 .PHONY: \
 	update \
-	build $(IMAGES)
+	build $(IMAGES) \
+	rsync
 
 all: update
 
@@ -23,3 +24,7 @@ $(IMAGES):
 
 # Build all images
 build: $(IMAGES)
+
+# Build rsync images
+rsync:
+	docker build -t rsync helpers/rsync

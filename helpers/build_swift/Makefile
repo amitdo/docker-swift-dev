@@ -37,7 +37,7 @@ build: $(IMAGES)
 
 # Copy sources
 copy-src: clean-volume
-	docker run --rm -it --name copy_swift_src -v ${PWD}:/orig -v swift_src:/src alpine sh -c "cp -r /orig/* /src/"
+	docker run --rm -it --name copy_swift_src -v ${PWD}:/orig -v swift_src:/src rsync -rltDq --exclude=".git" --delete --delete-excluded /orig/ /src
 
 # Build from copied sources
 $(IMAGES_BUILD_COPY):
@@ -52,9 +52,9 @@ $(REPOS_CLEAN):
 clean: $(REPOS_CLEAN)
 clean-output:
 	rm -r output || true
-clean-volume:
+clean-src-volume:
 	-docker volume rm swift_src
-clean-all: clean clean-output clean-volume
+clean-all: clean clean-output clean-src-volume
 
 # Checkout repositories to given tag:
 # make tag="<TAG_NAME>" checkout-tag
