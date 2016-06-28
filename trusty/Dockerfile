@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
         autoconf \
         clang-3.6 \
         cmake \
+        g++ \
         git \
         icu-devtools \
         libblocksruntime-dev \
