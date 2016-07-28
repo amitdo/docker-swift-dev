@@ -37,7 +37,7 @@ build: $(IMAGES)
 
 # Copy sources
 copy-src: clean-volume
-	docker run --rm -it --name copy_swift_src -v ${PWD}:/orig -v swift_src:/src rsync -rltDq --exclude=".git" --delete --delete-excluded /orig/ /src
+	docker run --rm -it --name copy_swift_src -v ${PWD}:/orig -v swift_src:/src rsync -rltDq --delete --delete-excluded /orig/ /src
 
 # Build from copied sources
 $(IMAGES_BUILD_COPY):

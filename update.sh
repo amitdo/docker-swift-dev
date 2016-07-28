@@ -20,7 +20,11 @@ do
     # For Ubuntu Trusty the Clang 3.6 have to be installed
     if [[ "${variant}" == "trusty" ]]; then
         sed -e "s/clang \\\/clang-3.6 \\\/" \
-            -e "s_/var/lib/apt/lists/\*_/var/lib/apt/lists/\* \\\ \\
+            -e "s/\(RUN \)\(.*\)/\\1 \\2 \\
+        software-properties-common \\\ \\
+    \&\& add-apt-repository -y ppa:george-edison55\/cmake-3.x \\\ \\
+    \&\& \\2 /" \
+            -e "s_\(/var/lib/apt/lists/\*\)_\\1 \\\ \\
     \&\& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 100 \\\ \\
     \&\& update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100_" \
             -i "" "${variant}/Dockerfile"
