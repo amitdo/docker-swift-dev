@@ -10,10 +10,11 @@ VOLUME ["/src"]
 # Optional. Volume to store installation packages and build logs
 VOLUME ["/output"]
 WORKDIR /src
+# Debian Sid  requires clang-3.8
 # Ubuntu Trusty (14.04) requires clang-3.6 and cmake 3.x
 RUN apt-get update && apt-get install -y \
         autoconf \
-        clang \
+        clang-3.8 \
         cmake \
         g++ \
         git \
@@ -34,7 +35,9 @@ RUN apt-get update && apt-get install -y \
         python3 \
         swig \
         uuid-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \ 
+    && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \ 
+    && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
 
 COPY build.sh swift-build-presets.ini /build_scripts/
 CMD ["/build_scripts/build.sh"]

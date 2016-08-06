@@ -30,6 +30,15 @@ do
             -i "" "${variant}/Dockerfile"
     fi
 
+    # For Debian Sid the Clang 3.8 have to be installed
+    if [[ "${variant}" == "sid" ]]; then
+        sed -e "s/clang \\\/clang-3.8 \\\/" \
+            -e "s_\(/var/lib/apt/lists/\*\)_\\1 \\\ \\
+    \&\& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \\\ \\
+    \&\& update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100_" \
+            -i "" "${variant}/Dockerfile"
+    fi
+
     # Copy script and ocnfig files
     for file in ${FILES[@]}
     do

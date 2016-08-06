@@ -10,6 +10,7 @@ VOLUME ["/src"]
 # Optional. Volume to store installation packages and build logs
 VOLUME ["/output"]
 WORKDIR /src
+# Debian Sid  requires clang-3.8
 # Ubuntu Trusty (14.04) requires clang-3.6 and cmake 3.x
 RUN  apt-get update && apt-get install -y \ 
         software-properties-common \ 

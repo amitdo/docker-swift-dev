@@ -24,7 +24,3 @@ $(IMAGES):
 
 # Build all images
 build: $(IMAGES)
-
-# Build rsync images
-rsync:
-	docker build -t rsync helpers/rsync
