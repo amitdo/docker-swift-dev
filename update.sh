@@ -20,7 +20,7 @@ do
     # For Ubuntu Trusty the Clang 3.6 have to be installed
     if [[ "${variant}" == "trusty" ]]; then
         sed -e "s/clang \\\/clang-3.6 \\\/" \
-            -e "s/\(RUN \)\(.*\)/\\1 \\2 \\
+            -e "s/\(RUN \)\(.*\)/\\1\\2 \\
         software-properties-common \\\ \\
     \&\& add-apt-repository -y ppa:george-edison55\/cmake-3.x \\\ \\
     \&\& \\2 /" \
@@ -30,8 +30,8 @@ do
             -i "" "${variant}/Dockerfile"
     fi
 
-    # For Debian Sid the Clang 3.8 have to be installed
-    if [[ "${variant}" == "sid" ]]; then
+    # For Debian Stretch and Sid the Clang 3.8 have to be installed
+    if [[ "${variant}" == "stretch" || "${variant}" == "sid" ]]; then
         sed -e "s/clang \\\/clang-3.8 \\\/" \
             -e "s_\(/var/lib/apt/lists/\*\)_\\1 \\\ \\
     \&\& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \\\ \\
