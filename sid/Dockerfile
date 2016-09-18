@@ -21,9 +21,9 @@ RUN apt-get update && apt-get install -y \
         icu-devtools \
         libblocksruntime-dev \
         libbsd-dev \
+        libcurl4-openssl-dev \
         libedit-dev \
         libicu-dev \
-        libkqueue-dev \
         libncurses5-dev \
         libpython-dev \
         libsqlite3-dev \
