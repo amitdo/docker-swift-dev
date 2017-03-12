@@ -1,7 +1,7 @@
-FROM ubuntu:wily
+FROM ubuntu:yakkety
 MAINTAINER Bartosz Janda
 
-ENV BUILD_NAME wily
+ENV BUILD_NAME yakkety
 # Folder where build files will be stored
 ENV SWIFT_BUILD_ROOT /build
 
@@ -10,8 +10,9 @@ VOLUME ["/src"]
 # Optional. Volume to store installation packages and build logs
 VOLUME ["/output"]
 WORKDIR /src
-# Debian Stretch and Sid requires clang-3.8
-# Ubuntu Trusty (14.04) requires clang-3.6 and cmake 3.x
+# Ubuntu Trusty the Clang 3.8 and CMake >= 3.4.3 have to be installed
+# Debian Jessie CMake >= 3.4.3 have to be installed
+# Debian Stretch and Sid the Clang 3.8 have to be installed
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang \
@@ -34,7 +35,9 @@ RUN apt-get update && apt-get install -y \
         python \
         python3 \
         swig \
+        systemtap-sdt-dev \
         uuid-dev \
+        vim-tiny \
     && rm -rf /var/lib/apt/lists/*
 
 COPY build.sh swift-build-presets.ini /build_scripts/

@@ -3,8 +3,8 @@ IMAGES := \
 	stretch \
 	sid \
 	trusty \
-	wily \
-	xenial
+	xenial \
+	yakkety
 IMAGES_BUILD_COPY := $(IMAGES:%=%-build-copy)
 
 REPOS := \
@@ -118,7 +118,10 @@ $(REPOS_CLONE):
 	$(eval repo_name := $(call get_repo_name,$(repo)))
 	-git clone https://github.com/apple/$(repo_name).git $(repo)
 	-git -C $(repo) submodule update --init --recursive
-clone: $(REPOS_CLONE)
+# clone: $(REPOS_CLONE)
+clone:
+	git clone https://github.com/apple/swift.git
+	./swift/utils/update-checkout --clone
 
 # Checkout repositories to given tag:
 # make tag="<TAG_NAME>" checkout-tag

@@ -4,8 +4,8 @@ IMAGES := \
 	stretch \
 	sid \
 	trusty \
-	wily \
-	xenial
+	xenial \
+	yakkety
 
 .PHONY: \
 	update \

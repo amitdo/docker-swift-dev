@@ -10,8 +10,8 @@
 - [`stretch` (*stretch/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/stretch/Dockerfile)
 - [`sid` (*sid/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/sid/Dockerfile)
 - [`trusty` (*trusty/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/trusty/Dockerfile)
-- [`wily` (*wily/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/wily/Dockerfile)
 - [`xenial` (*xenial/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/xenial/Dockerfile)
+- [`yakkety` (*yakkety/Dockerfile*)](https://github.com/bartoszj/docker-swift-dev/blob/master/yakkety/Dockerfile)
 
 Docker images for building Swift.  
 https://hub.docker.com/r/bartoszj/swift-dev/

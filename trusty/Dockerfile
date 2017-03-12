@@ -10,15 +10,13 @@ VOLUME ["/src"]
 # Optional. Volume to store installation packages and build logs
 VOLUME ["/output"]
 WORKDIR /src
-# Debian Stretch and Sid requires clang-3.8
-# Ubuntu Trusty (14.04) requires clang-3.6 and cmake 3.x
-RUN apt-get update && apt-get install -y \ 
-        software-properties-common \ 
-    && add-apt-repository -y ppa:george-edison55/cmake-3.x \ 
-    && apt-get update && apt-get install -y \ 
+# Ubuntu Trusty the Clang 3.8 and CMake >= 3.4.3 have to be installed
+# Debian Jessie CMake >= 3.4.3 have to be installed
+# Debian Stretch and Sid the Clang 3.8 have to be installed
+RUN apt-get update && apt-get install -y \
         autoconf \
-        clang-3.6 \
-        cmake \
+        clang-3.8 \
+        make wget \
         g++ \
         git \
         icu-devtools \
@@ -37,10 +35,18 @@ RUN apt-get update && apt-get install -y \
         python \
         python3 \
         swig \
+        systemtap-sdt-dev \
         uuid-dev \
+        vim-tiny \
     && rm -rf /var/lib/apt/lists/* \ 
-    && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 100 \ 
-    && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
+    && wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz \ 
+    && tar zxvf cmake-3.7.2.tar.gz \ 
+    && cd cmake-3.7.2 \ 
+    && ./configure && make && make install \ 
+    && cd ../ && rm -r cmake-3.7.2 \ 
+    && update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 1 --force \ 
+    && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \ 
+    && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
 
 COPY build.sh swift-build-presets.ini /build_scripts/
 CMD ["/build_scripts/build.sh"]
