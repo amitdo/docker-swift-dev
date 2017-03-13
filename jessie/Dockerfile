@@ -12,7 +12,7 @@ VOLUME ["/output"]
 WORKDIR /src
 # Ubuntu Trusty the Clang 3.8 and CMake >= 3.4.3 have to be installed
 # Debian Jessie CMake >= 3.4.3 have to be installed
-# Debian Stretch and Sid the Clang 3.8 have to be installed
+# Debian Stretch and Sid the Clang 3.8, Swig 3.0.7, libedit 3.1-20150325-1 have to be installed
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang \
@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y \
     && wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz \ 
     && tar zxvf cmake-3.7.2.tar.gz \ 
     && cd cmake-3.7.2 \ 
-    && ./configure && make && make install \ 
+    && ./configure && make -j 8 && make install \ 
     && cd ../ && rm -r cmake-3.7.2 \ 
     && update-alternatives --install /usr/bin/cmake cmake /usr/local/bin/cmake 1 --force
 

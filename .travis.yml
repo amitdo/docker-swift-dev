@@ -6,8 +6,8 @@ env:
   - VERSION=stretch
   - VERSION=sid
   - VERSION=trusty
-  - VERSION=wily
   - VERSION=xenial
+  - VERSION=yakkety
 
 before_script:
   - env | sort

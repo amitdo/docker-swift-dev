@@ -1,7 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-[![Swift 2.2.1](https://img.shields.io/badge/Swift-2.2.1-orange.svg?style=flat)](https://swift.org/)
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://swift.org/)
+[![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat)](https://swift.org/)
 [![Travis](https://img.shields.io/travis/bartoszj/docker-swift-dev.svg)](https://travis-ci.org/bartoszj/docker-swift-dev)
 [![Platforms Docker](https://img.shields.io/badge/Platforms-Docker-blue.svg?style=flat)](https://hub.docker.com/r/bartoszj/swift-dev/)
 [![license](https://img.shields.io/github/license/bartoszj/docker-swift-dev.svg)](https://github.com/bartoszj/docker-swift-dev/blob/master/LICENSE)
@@ -67,10 +66,6 @@ docker start -ai swift_jessie
 docker run --name swift_jessie -v ${PWD}:/src -v ${PWD}/output:/output -v swift_build:/build --privileged bartoszj/swift-dev:jessie
 docker run --name swift_xenial -v ${PWD}:/src -v ${PWD}/output:/output -v swift_build:/build --privileged bartoszj/swift-dev:xenial
 ```
-
-- Building Swift 3 on Ubuntu Xenial:  
-    - https://bugs.swift.org/browse/SR-1023 (https://github.com/apple/swift/pull/2609, commit: `3b7b0d80919997ead4c9bb6d681c5739e22d34cc`)
-    - https://bugs.swift.org/browse/SR-1631 (https://github.com/apple/swift-corelibs-xctest/pull/120, commit: `eb46e08ba1977252ec576724be14c88d8c51898c`)
 
 # License
 

@@ -12,7 +12,7 @@ VOLUME ["/output"]
 WORKDIR /src
 # Ubuntu Trusty the Clang 3.8 and CMake >= 3.4.3 have to be installed
 # Debian Jessie CMake >= 3.4.3 have to be installed
-# Debian Stretch and Sid the Clang 3.8 have to be installed
+# Debian Stretch and Sid the Clang 3.8, Swig 3.0.7, libedit 3.1-20150325-1 have to be installed
 RUN apt-get update && apt-get install -y \
         autoconf \
         clang-3.8 \
@@ -34,11 +34,16 @@ RUN apt-get update && apt-get install -y \
         pkg-config \
         python \
         python3 \
-        swig \
+        wget \
         systemtap-sdt-dev \
         uuid-dev \
         vim-tiny \
     && rm -rf /var/lib/apt/lists/* \ 
+    && wget http://snapshot.debian.org/archive/debian/20160617T164513Z/pool/main/s/swig/swig_3.0.7-2.1_amd64.deb \ 
+    && wget http://snapshot.debian.org/archive/debian/20160617T164513Z/pool/main/s/swig/swig3.0_3.0.7-2.1_amd64.deb \ 
+    && wget http://snapshot.debian.org/archive/debian/20151204T042531Z/pool/main/libe/libedit/libedit2_3.1-20150325-1%2Bb1_amd64.deb \ 
+    && wget http://snapshot.debian.org/archive/debian/20151204T042531Z/pool/main/libe/libedit/libedit-dev_3.1-20150325-1%2Bb1_amd64.deb \ 
+    && dpkg -i *deb && rm *deb \ 
     && update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \ 
     && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
 

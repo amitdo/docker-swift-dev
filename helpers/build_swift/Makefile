@@ -42,7 +42,7 @@ all:
 # Build source
 # 
 # Build Swift for given image
-$(IMAGES):
+$(IMAGES): clean
 	-docker run --rm -it --name swift_$(@) -v ${PWD}:/src -v ${PWD}/output:/output -v swift_build_$@:/build --privileged bartoszj/swift-dev:$@
 build: $(IMAGES)
 
