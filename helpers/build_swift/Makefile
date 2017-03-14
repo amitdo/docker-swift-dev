@@ -68,7 +68,7 @@ $(REPOS_CLEAN):
 	-git -C $(repo) clean -fdx
 clean: $(REPOS_CLEAN)
 clean-output:
-	rm -r output || true
+	rm -r output/* || true
 clean-src-volume:
 	-docker volume rm swift_src
 $(REPOS_CLEAN_SRC):

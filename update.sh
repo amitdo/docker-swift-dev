@@ -46,18 +46,15 @@ do
             -i "" "${variant}/Dockerfile"
     fi
 
-    # For Debian Stretch and Sid the Clang 3.8, Swig 3.0.7, libedit 3.1-20150325-1 have to be installed
+    # For Debian Stretch and Sid the Swig 3.0.7, libedit 3.1-20150325-1 have to be installed
     if [[ "${variant}" == "stretch" || "${variant}" == "sid" ]]; then
-        sed -e "s/clang \\\/clang-3.8 \\\/" \
-            -e "s/swig \\\/wget \\\/" \
+        sed -e "s/swig \\\/wget \\\/" \
             -e "s_\(/var/lib/apt/lists/\*\)_\\1 \\\ \\
     \&\& wget http://snapshot.debian.org/archive/debian/20160617T164513Z/pool/main/s/swig/swig\_3.0.7-2.1\_amd64.deb \\\ \\
     \&\& wget http://snapshot.debian.org/archive/debian/20160617T164513Z/pool/main/s/swig/swig3.0\_3.0.7-2.1\_amd64.deb \\\ \\
     \&\& wget http://snapshot.debian.org/archive/debian/20151204T042531Z/pool/main/libe/libedit/libedit2\_3.1-20150325-1%2Bb1\_amd64.deb \\\ \\
     \&\& wget http://snapshot.debian.org/archive/debian/20151204T042531Z/pool/main/libe/libedit/libedit-dev\_3.1-20150325-1%2Bb1\_amd64.deb \\\ \\
-    \&\& dpkg -i *deb \&\& rm *deb \\\ \\
-    \&\& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100 \\\ \\
-    \&\& update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100_" \
+    \&\& dpkg -i *deb \&\& rm *deb_" \
             -i "" "${variant}/Dockerfile"
     fi
 
